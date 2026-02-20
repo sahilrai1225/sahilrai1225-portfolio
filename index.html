@@ -16,10 +16,15 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 </head>
 
 <body>
+<div id="boot-screen">
+  <div class="boot-text"></div>
+</div>
+<canvas id="neural-bg"></canvas>
 
 <header class="navbar">
     <div class="logo">Sahil Rai</div>
@@ -41,14 +46,27 @@
     <div id="particles-js"></div>
 
     <h1>Sahil Rai</h1>
-    <h2><span class="typing"></span></h2>
-    <p>BCA Student at IMS Noida (Graduating 2026)</p>
+    <h2 id="terminal"></h2>
 
     <div class="hero-buttons">
         <a href="#projects" class="btn primary">View Projects</a>
-        <a href="assets\Resume - BCA Student.pdf" download class="btn secondary">Download Resume</a>
+        <a href="assets/Resume - BCA Student.pdf" download class="btn secondary">
+            Download Resume
+        </a>
     </div>
+
+    <canvas id="ai-graph"></canvas>
+
+    <div class="floating-keywords">
+        <span>AI</span>
+        <span>ML</span>
+        <span>RAG</span>
+        <span>LSTM</span>
+        <span>Transformers</span>
+    </div>
+
 </section>
+
 
 
 <section id="about">
@@ -95,7 +113,7 @@
     <div class="hero-stats">
 
         <div class="stat-card">
-            <h3 class="counter" data-target="4">0</h3>
+            <h3 class="counter" data-target="5">0</h3>
             <p>Projects Built</p>
         </div>
 
@@ -199,37 +217,40 @@
         <!-- Programming -->
         <div class="skill-box">
             <h3>Programming</h3>
-
             <div class="logo-grid">
 
-                <div class="logo-card">
+                <a href="docs/python.pdf" target="_blank" class="logo-card">
                     <i class="devicon-python-plain colored"></i>
                     <p>Python</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
-                    <i class="devicon-mysql-plain colored"></i>
+                <a href="docs/sql.pdf" target="_blank" class="logo-card">
+                    <i class="fa-solid fa-database"></i>
                     <p>SQL</p>
-                </div>
+                </a>
 
             </div>
         </div>
 
-        <!-- Machine Learning -->
+        <!-- Machine Learning & Deep Learning -->
         <div class="skill-box">
-            <h3>Machine Learning</h3>
-
+            <h3>Machine Learning & Deep Learning</h3>
             <div class="logo-grid">
 
-                <div class="logo-card">
+                <a href="docs/scikit-learn.pdf" target="_blank" class="logo-card">
                     <i class="devicon-scikitlearn-plain colored"></i>
                     <p>Scikit-Learn</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/tensorflow.pdf" target="_blank" class="logo-card">
                     <i class="devicon-tensorflow-original colored"></i>
                     <p>TensorFlow</p>
-                </div>
+                </a>
+
+                <a href="docs/pytorch.pdf" target="_blank" class="logo-card">
+                    <i class="devicon-pytorch-original colored"></i>
+                    <p>PyTorch</p>
+                </a>
 
             </div>
         </div>
@@ -237,18 +258,23 @@
         <!-- Artificial Intelligence -->
         <div class="skill-box">
             <h3>Artificial Intelligence</h3>
-
             <div class="logo-grid">
 
-                <div class="logo-card">
+                <a href="docs/generative-ai.pdf" target="_blank" class="logo-card">
                     <i class="fa-solid fa-robot"></i>
                     <p>Generative AI</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/rag.pdf" target="_blank" class="logo-card">
                     <i class="fa-solid fa-brain"></i>
                     <p>RAG Systems</p>
-                </div>
+                </a>
+
+                <a href="docs/rag.pdf" target="_blank" class="logo-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <p>AI AGENTS</p>
+                </a>
+                
 
             </div>
         </div>
@@ -256,67 +282,66 @@
         <!-- Data & Tools -->
         <div class="skill-box">
             <h3>Data & Tools</h3>
-
             <div class="logo-grid">
 
-                <div class="logo-card">
-                    <i class="devicon-pandas-original colored"></i>
+                <a href="docs/pandas.pdf" target="_blank"               class="logo-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" 
+                    alt="Pandas Logo" width="40">
                     <p>Pandas</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/mongodb.pdf" target="_blank" class="logo-card">
                     <i class="devicon-mongodb-plain colored"></i>
                     <p>MongoDB</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/mysql.pdf" target="_blank" class="logo-card">
                     <i class="devicon-mysql-plain colored"></i>
                     <p>MySQL</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
-                    <i class="devicon-googlecloud-plain colored"></i>
+                <a href="docs/powerbi.pdf" target="_blank" class="logo-card">
+                    <i class="fa-solid fa-chart-column"></i>
                     <p>Power BI</p>
-                </div>
+                </a>
 
             </div>
         </div>
 
-        <!-- Development -->
+        <!-- Development Tools -->
         <div class="skill-box">
             <h3>Development Tools</h3>
-
             <div class="logo-grid">
 
-                <div class="logo-card">
+                <a href="docs/github.pdf" target="_blank" class="logo-card">
                     <i class="devicon-github-original"></i>
                     <p>GitHub</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/git.pdf" target="_blank" class="logo-card">
                     <i class="devicon-git-plain colored"></i>
                     <p>Git</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/vscode.pdf" target="_blank" class="logo-card">
                     <i class="devicon-vscode-plain colored"></i>
                     <p>VS Code</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/terminal.pdf" target="_blank" class="logo-card">
                     <i class="fa-solid fa-terminal"></i>
                     <p>Terminal</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/claude.pdf" target="_blank" class="logo-card">
                     <i class="fa-solid fa-robot"></i>
                     <p>Claude</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/cursor.pdf" target="_blank" class="logo-card">
                     <i class="fa-solid fa-code"></i>
                     <p>Cursor</p>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -324,23 +349,22 @@
         <!-- Cloud -->
         <div class="skill-box">
             <h3>Cloud & Infrastructure</h3>
-
             <div class="logo-grid">
 
-                <div class="logo-card">
+                <a href="docs/aws.pdf" target="_blank" class="logo-card">
                     <i class="devicon-amazonwebservices-original colored"></i>
                     <p>AWS</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/gcp.pdf" target="_blank" class="logo-card">
                     <i class="devicon-googlecloud-plain colored"></i>
                     <p>Google Cloud</p>
-                </div>
+                </a>
 
-                <div class="logo-card">
+                <a href="docs/docker.pdf" target="_blank" class="logo-card">
                     <i class="devicon-docker-plain colored"></i>
                     <p>Docker</p>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -348,7 +372,6 @@
     </div>
 
 </section>
-
 
 
 
