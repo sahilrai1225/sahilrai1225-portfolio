@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Understanding Neural Networks | Sahil Rai</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #e2e8f0;
+    line-height: 1.8;
+}
+
+.blog-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(15,23,42,0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 26px;
+}
+
+.meta {
+    color: rgba(226,232,240,0.6);
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+/* ===== FORMULA BLOCK ===== */
+.formula {
+    background: #0b1220;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: monospace;
+    overflow-x: auto;
+    margin: 20px 0;
+    color: #38bdf8;
+}
+
+/* ===== CODE BLOCK ===== */
+pre {
+    background: #0b1220;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    color: #38bdf8;
+}
+
+/* BACK BUTTON */
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="blog-container">
+
+<h1>Understanding Neural Networks</h1>
+
+<div class="meta">
+Published: February 26, 2026 • 8 min read
+</div>
+
+<p>
+Neural networks are computational models inspired by the biological structure of neurons in the human brain. They are the foundational architecture behind modern Artificial Intelligence systems, including image recognition, natural language processing, speech systems, recommendation engines, and large language models.
+</p>
+
+<p>
+At their core, neural networks are mathematical function approximators. Given enough data and properly optimized parameters, they can approximate almost any continuous function. This theoretical result is known as the Universal Approximation Theorem.
+</p>
+
+<h2>1. The Mathematical Foundation of a Single Neuron</h2>
+
+<p>
+A single artificial neuron performs a weighted sum of inputs followed by a non-linear activation function.
+</p>
+
+<div class="formula">
+y = σ(Wx + b)
+</div>
+
+Where:
+<br><br>
+W = weight vector  
+x = input vector  
+b = bias term  
+σ = activation function  
+
+<p>
+More explicitly:
+</p>
+
+<div class="formula">
+z = w₁x₁ + w₂x₂ + ... + wₙxₙ + b  
+y = σ(z)
+</div>
+
+<p>
+The weights determine how strongly each input influences the output. During training, these weights are adjusted to minimize prediction error.
+</p>
+
+<h2>2. Activation Functions</h2>
+
+<p>
+Without non-linearity, neural networks would collapse into simple linear regression models. Activation functions introduce non-linear transformations.
+</p>
+
+Common activation functions include:
+</p>
+
+<div class="formula">
+Sigmoid: σ(x) = 1 / (1 + e⁻ˣ)
+</div>
+
+<div class="formula">
+ReLU: f(x) = max(0, x)
+</div>
+
+<div class="formula">
+Tanh: tanh(x) = (eˣ - e⁻ˣ) / (eˣ + e⁻ˣ)
+</div>
+
+<p>
+Modern deep learning models frequently use ReLU due to its computational efficiency and gradient stability.
+</p>
+
+<h2>3. From Single Neuron to Deep Networks</h2>
+
+<p>
+When we stack multiple neurons into layers, we create a feedforward neural network.
+</p>
+
+Layered representation:
+</p>
+
+<div class="formula">
+a¹ = σ(W¹x + b¹)  
+a² = σ(W²a¹ + b²)  
+...  
+Output = σ(Wⁿaⁿ⁻¹ + bⁿ)
+</div>
+
+<p>
+Each layer extracts progressively higher-level features. Early layers detect simple patterns, while deeper layers capture abstract representations.
+</p>
+
+<h2>4. Loss Functions and Optimization</h2>
+
+<p>
+To train a neural network, we define a loss function that measures prediction error.
+</p>
+
+For regression:
+</p>
+
+<div class="formula">
+MSE = (1/n) Σ (y_true - y_pred)²
+</div>
+
+For classification:
+</p>
+
+<div class="formula">
+Cross-Entropy = - Σ y log(ŷ)
+</div>
+
+<p>
+The objective is to minimize this loss using Gradient Descent.
+</p>
+
+<div class="formula">
+w = w - α ∂L/∂w
+</div>
+
+Where α is the learning rate.
+</p>
+
+<h2>5. Backpropagation</h2>
+
+<p>
+Backpropagation is the algorithm that computes gradients efficiently using the chain rule of calculus.
+</p>
+
+Mathematically:
+</p>
+
+<div class="formula">
+∂L/∂w = ∂L/∂a × ∂a/∂z × ∂z/∂w
+</div>
+
+<p>
+This process updates weights iteratively until convergence.
+</p>
+
+<h2>6. Practical Implementation (Python Example)</h2>
+
+<pre>
+import numpy as np
+
+def relu(x):
+    return np.maximum(0, x)
+
+# Random weights
+W = np.random.randn(3, 2)
+b = np.zeros((3,1))
+
+# Sample input
+x = np.array([[1],[2]])
+
+z = np.dot(W, x) + b
+a = relu(z)
+
+print(a)
+</pre>
+
+<h2>7. Why Neural Networks Matter</h2>
+
+<p>
+Neural networks power:
+</p>
+
+<ul>
+• Computer Vision (CNNs)  
+• NLP systems (Transformers)  
+• Recommendation engines  
+• Time-series forecasting  
+• Generative AI models  
+</ul>
+
+<p>
+The evolution from shallow networks to deep architectures has enabled breakthroughs in fields ranging from healthcare to autonomous systems.
+</p>
+
+<h2>Final Thoughts</h2>
+
+<p>
+Neural networks are fundamentally mathematical structures that learn through optimization. While modern architectures like Transformers appear complex, they are built on the same core principles: weighted sums, non-linear activation, and gradient-based optimization.
+</p>
+
+<p>
+Understanding these foundations allows engineers to move beyond tutorials and build production-ready AI systems.
+</p>
+
+<a href="../blog.html" class="back-link">← Back to Blog</a>
+
+</div>
+
+</body>
+</html>
